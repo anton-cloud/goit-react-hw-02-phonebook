@@ -21,7 +21,6 @@ class App extends Component {
       name,
       number,
     };
-    console.log(contact);
 
     const { contacts } = this.state;
 
