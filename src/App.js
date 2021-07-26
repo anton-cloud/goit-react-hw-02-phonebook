@@ -21,6 +21,7 @@ class App extends Component {
       name,
       number,
     };
+    console.log(contact);
 
     const { contacts } = this.state;
 
@@ -30,7 +31,11 @@ class App extends Component {
       )
     ) {
       alert(`${name} is already in contacts.`);
+      return;
     }
+    this.setState(({ contacts }) => ({
+      contacts: [contact, ...contacts],
+    }));
   };
 
   deleteContact = (contactId) => {
@@ -53,7 +58,7 @@ class App extends Component {
   };
 
   render() {
-    const { filter, contacts } = this.state;
+    const { filter } = this.state;
     const visibleContacts = this.getVisibleContacts();
     return (
       <div>
